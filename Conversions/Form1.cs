@@ -24,44 +24,57 @@ namespace Conversions
 
             if(method == 1)
             {
-                InchestoCm(number);
+                double cms = InchestoCm(number);
+
+                outputLabel.Text = $"{number} inches = {cms.ToString(".##")} cms";
             }
             else if(method == 2)
             {
-                FeettoCm(number);
+                double cm = FeettoCm(number);
+
+                outputLabel.Text = $"{number} feet = {cm.ToString(".##")} cms";
             }
             else if(method == 3)
             {
-                YardstoMetres(number);
+                double metres = YardstoMetres(number);
+
+                outputLabel.Text = $"{number} yards = {metres.ToString(".##")}ms";
+            }
+            else if (method == 4)
+            {
+                double kms = MilestoKm(number);
+
+                outputLabel.Text = $"{number} miles = {kms.ToString(".##")} kms";
             }
             else
             {
-                MilestoKm(number);
+                outputLabel.Text = $"Please insert a number from 1-4";
+
             }
         }
 
-        public void InchestoCm(int inches)
+        public double InchestoCm(int inches)
         {
             double cms = inches * 2.54;
-            outputLabel.Text = $"{inches} inches = {cms.ToString(".##")} cms";
+            return cms;
         }
 
-        public void FeettoCm(int feet)
+        public double FeettoCm(int feet)
         {
             double cm = feet * 30.48;
-            outputLabel.Text = $"{feet} feet = {cm.ToString(".##")} cms";
+            return cm;
         }
 
-        public void YardstoMetres(int yards)
+        public double YardstoMetres(int yards)
         {
             double metres = yards * 0.91;
-            outputLabel.Text = $"{yards} yards = {metres.ToString(".##")}ms";
+            return metres;
         }
 
-        public void MilestoKm(int miles)
+        public double MilestoKm(int miles)
         {
             double kms = miles * 1.6;
-            outputLabel.Text = $"{miles} miles = {kms.ToString(".##")} kms";
+            return kms;
         }
     }
 }
